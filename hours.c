@@ -33,5 +33,5 @@ int main(void)
 	decimins %= 100;
 	int realmins = round(decimins * 0.6);
 	printf("You average %d hours and %d mins over %d days.\n", (int)avrgHours, realmins, yearday);
-	return 0;
+	return (int)avrgHours;
 }
