@@ -11,10 +11,9 @@ int main(void)
 {
 	// Get total hours for the year
 	printf("Enter total hours for the year: \n");
-	printf("Eg. HH MM\n");
 	int hours, mins;
-	scanf("%d %d", &hours, &mins);
-	printf("You have logged %d hours and %d minutes for the year\n", hours, mins);
+	scanf("%d", &hours);
+	printf("You have logged %d hours\n", hours, mins);
 	
 	// Get the time
 	time_t rawtime;
@@ -26,8 +25,6 @@ int main(void)
 	int yearday = now->tm_yday + 1;
 	printf( "%s", asctime(now) );
 	printf("I've counted %d days for the year.\n", yearday);
-
-	
 
 	// Calc average hours per day
 	
