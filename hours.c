@@ -6,27 +6,32 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
 
 int main(void)
 {
 	// Get total hours for the year
-	printf("Enter total hours for the year: \n");
-	int hours, mins;
+	printf("Enter total hours for the year: ");
+	int hours;
 	scanf("%d", &hours);
-	printf("You have logged %d hours\n", hours, mins);
 	
 	// Get the time
 	time_t rawtime;
 	time(&rawtime);	
 
-	// Get day of the year from time.h
+	// Get day of the year from rawtime
 	struct tm *now;
 	now = localtime(&rawtime);
 	int yearday = now->tm_yday + 1;
-	printf( "%s", asctime(now) );
-	printf("I've counted %d days for the year.\n", yearday);
+	printf( "As of %s", asctime(now) );
 
 	// Calc average hours per day
-	
+	float avrgHours = (float)hours / yearday;
+
+	// Calc mins
+	int decimins = round(avrgHours * 100);
+	decimins %= 100;
+	int realmins = round(decimins * 0.6);
+	printf("You average %d hours and %d mins over %d days.\n", (int)avrgHours, realmins, yearday);
 	return 0;
 }
