@@ -28,10 +28,14 @@ int main(void)
 	// Calc average hours per day
 	float avrgHours = (float)hours / yearday;
 
+	// Calc remainder for the year
+	int estimated = avrgHours * 365;
+
 	// Calc mins
 	int decimins = round(avrgHours * 100);
 	decimins %= 100;
 	int realmins = round(decimins * 0.6);
 	printf("You average %d hours and %d mins over %d days.\n", (int)avrgHours, realmins, yearday);
+	printf("At this rate you will accumalate %d hours by the end of the year\n", estimated);
 	return (int)avrgHours;
 }
